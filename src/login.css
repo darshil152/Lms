@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+
+.button{
+    /* text-align: center; */
+    font-family: 'Bungee Inline', cursive;
+}
+
+label.form-label{
+    font-weight: 600;
+}
+
+img{
+    width: 200px;
+}
+
+.sidebar{
+    width: 250px;
+    height: 100vh;
+    box-shadow: 2px 0px 3px gray;
+    position: fixed;
+    left: 0;
+}
+
+.anchor{
+
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 12px;
+}
+
+.form{
+    margin-top: 120px;
+    margin-left: 650px;
+}
+
