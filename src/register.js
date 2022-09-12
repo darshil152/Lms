@@ -30,6 +30,8 @@ export default class Register extends Component {
 
         let y = localStorage.getItem('regis') ? JSON.parse(localStorage.getItem('regis')) : []
 
+
+
         if (y.length > 0) {
             let alreadexist = false
             for (let index = 0; index < y.length; index++) {
@@ -60,6 +62,10 @@ export default class Register extends Component {
         }
     }
 
+    getData = (data) => {
+        console.log(data)
+    }
+
     render() {
         return (
             <div>
@@ -85,9 +91,11 @@ export default class Register extends Component {
                     </div>
 
                 </div>
-                
+
+            //  <Login getData={this.getData} />
+
             </div>
-           
+
         )
     }
 }

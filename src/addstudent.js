@@ -12,7 +12,7 @@ export default class Addstudent extends Component {
             cemail: '',
             pic: '',
             standard: '',
-            data1: [],
+            y: [],
             gender: '',
             pro: '',
         }
@@ -32,7 +32,13 @@ export default class Addstudent extends Component {
         this.setState({ cemail: e.target.value })
     }
     onpicchange = (e) => {
-        this.setState({ pic: e.target.value })
+        var file = e.target.files[0];
+        var reader = new FileReader();
+        reader.onloadend = () => {
+            // console.log('RESULT', reader.result)
+            this.setState({ pic: reader.result })
+        }
+        reader.readAsDataURL(file);
     }
     onestdchange = (e) => {
         this.setState({ standard: e.target.value })
@@ -48,32 +54,46 @@ export default class Addstudent extends Component {
 
     click = (e) => {
 
-        if (this.state.email == this.state.cemail) {
+        let y = localStorage.getItem("students") ? JSON.parse(localStorage.getItem('students')) : []
 
-            let data1 = JSON.parse(localStorage.getItem("students"))
+        if (y.length > 0) {
+            let alreadexist = false
+            if (this.state.email == this.state.cemail) {
+                alreadexist = true
+            }
 
-            data1.push({
+
+            if (alreadexist) {
+                y.push({
+                    name: this.state.name,
+                    email: this.state.email,
+                    cemail: this.state.cemail,
+                    pic: this.state.pic,
+                    standard: this.state.standard,
+                    gender: this.state.gender,
+                    pro: this.state.pro
+                })
+                localStorage.setItem("students", JSON.stringify(y))
+                window.location.href = 'view-student'
+            } else {
+                alert('please match email')
+            }
+        } else {
+            y.push({
                 name: this.state.name,
                 email: this.state.email,
                 cemail: this.state.cemail,
-                pic:this.state.pic,
+                pic: this.state.pic,
                 standard: this.state.standard,
                 gender: this.state.gender,
                 pro: this.state.pro
             })
-
-            localStorage.setItem("students", JSON.stringify(data1))
+            localStorage.setItem("students", JSON.stringify(y))
             window.location.href = 'view-student'
-            // console.log(data1)
-
-        } else {
-            alert("matching email is incorrect")
-            alert('i am darshil lunagariya from surat. how can i help u')
         }
 
-
-
     }
+
 
     render() {
         return (
@@ -99,7 +119,7 @@ export default class Addstudent extends Component {
 
                             <div className="form-outline mb-4 col-sm-6" >
                                 <label className="form-label" htmlFor="form2Example1">Enter your profile pic:</label>
-                                <input type="file" id="myFile"  onChange={this.onpicchange} />
+                                <input type="file" id="myFile" onChange={this.onpicchange} />
                             </div>
 
 

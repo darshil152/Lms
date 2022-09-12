@@ -25,29 +25,30 @@ export default class extends Component {
 
 
     click = (e) => {
+        this.props.getData('askdfhaisd')
 
         let x = JSON.parse(localStorage.getItem('regis'));
-         let login = false
+        let login = false
         for (let index = 0; index < x.length; index++) {
             if (x[index].email == this.state.email && x[index].password == this.state.password) {
                 login = true
-            } 
+            }
         }
         if (login) {
             window.location.href = "add-student"
             localStorage.setItem('logedinuser', this.state.email)
         } else {
-          alert('please Enter Correct Email')   
+            alert('please Enter Correct Email')
         }
     }
-    
+
     render() {
         return (
             <div>
 
                 <div className="main">
                     <div>
-                    
+
                         <div className="form-outline mb-4 col-sm-6" >
                             <label className="form-label" htmlFor="form2Example1">Email address</label>
                             <input type="email" onChange={this.onemailchange} id="form2Example1" className="form-control" />
