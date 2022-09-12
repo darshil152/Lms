@@ -26,7 +26,7 @@ export default class Register extends Component {
     }
 
     click = (e) => {
-
+        // test
         let y = localStorage.getItem('regis') ? JSON.parse(localStorage.getItem('regis')) : []
 
         if (y.length > 0) {
@@ -44,7 +44,7 @@ export default class Register extends Component {
                     email: this.state.email,
                     password: this.state.password
                 })
-                
+
                 localStorage.setItem('regis', JSON.stringify(y))
                 window.location.href = 'login'
             } 
