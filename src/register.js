@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider'
+import Login from './login'
 
 export default class Register extends Component {
 
@@ -84,7 +85,9 @@ export default class Register extends Component {
                     </div>
 
                 </div>
+                
             </div>
+           
         )
     }
 }

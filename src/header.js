@@ -9,7 +9,7 @@ export default class Header extends Component {
     componentDidMount() {
 
         this.setState({ email: localStorage.getItem('logedinuser') })
-
+ 
     }
     render() {
         return (

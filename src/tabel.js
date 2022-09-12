@@ -3,7 +3,6 @@ import Layout from './layout'
 
 export default class Table extends Component {
 
-
     render() {
         return (
             <Layout>
