@@ -26,34 +26,33 @@ export default class Register extends Component {
     }
 
     click = (e) => {
-        
+
         let y = localStorage.getItem('regis') ? JSON.parse(localStorage.getItem('regis')) : []
 
         if (y.length > 0) {
             let alreadexist = false
             for (let index = 0; index < y.length; index++) {
                 if (y[index].email == this.state.email) {
-                    // alreadexist = true
-                    alert('email already registered')
-                    window.location.href = 'register'
+                    alreadexist = true
                 }
             }
 
             if (alreadexist) {
+                alert('Email already exist')
+            } else {
                 y.push({
+                    name: this.state.name,
                     email: this.state.email,
                     password: this.state.password
                 })
-
                 localStorage.setItem('regis', JSON.stringify(y))
                 window.location.href = 'login'
-            } 
-        } 
+            }
+        }
         else {
             y.push({
-                name: this.state.name,
                 email: this.state.email,
-                password: this.state.password,  
+                password: this.state.password,
             })
             localStorage.setItem('regis', JSON.stringify(y));
             window.location.href = 'login'
