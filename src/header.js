@@ -11,9 +11,6 @@ export default class Header extends Component {
         this.setState({ email: localStorage.getItem('logedinuser') })
 
     }
-
-
-
     render() {
         return (
             <>
